@@ -1,17 +1,18 @@
-THEME = theme.sed
+THEME  = theme.sed
+FILTER = sed -f mixins.sed | sed -f $(THEME)
 
 install: ~/.nano/syntax.nanorc
 
 install-separate: $(addprefix ~/.nano/syntax/, $(wildcard *.nanorc))
 
 ~/.nano/syntax.nanorc: *.nanorc mixins/*.nanorc $(THEME) | ~/.nano/
-	@sed -f mixins.sed *.nanorc | sed -f $(THEME) $(FILTER) > $@
-	@printf 'Installed: $@\n\n'
-	@printf 'To enable, add the following line to your ~/.nanorc:\n\n'
-	@printf '  include $@\n\n'
+	@cat *.nanorc | $(FILTER) > $@
+	@printf 'Installed: $@\n'
+	@grep '^include $@' ~/.nanorc >/dev/null 2>&1 || \
+	  echo 'include $@' >> ~/.nanorc
 
 ~/.nano/syntax/%.nanorc: %.nanorc mixins/*.nanorc $(THEME) | ~/.nano/syntax/
-	@sed -f mixins.sed $< | sed -f $(THEME) $(FILTER) > $@
+	@cat $< | $(FILTER) > $@
 	@echo 'Installed: $@'
 
 ~/.nano/ ~/.nano/syntax/:
