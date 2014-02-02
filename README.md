@@ -37,11 +37,9 @@ Screenshots:
 Installation
 ------------
 
-Using `make install` will concatenate all syntax files together and install
-to `~/.nano/syntax.nanorc`. You can then [include][example] this file into
-your main `~/.nanorc` configuration by adding the line:
-
-    include ~/.nano/syntax.nanorc
+Using `make install` will concatenate and install the syntax definitions
+to `~/.nano/syntax.nanorc` and append an `include` command to
+`~/.nanorc`, if necessary.
 
 If your terminal **text** color isn't black, you'll need to specify it when
 installing, using `make install TEXT=color`, where `color` must be one of:
@@ -85,16 +83,6 @@ defining *all* color codes found in [theme.sed] in order to work correctly.
 
 FAQ
 ----
-
-### Why did the install location change / Where did the old key bindings go?
-
-The old settings and key bindings file was deleted and the Makefile now
-installs *just* the syntax definitions to `~/.nano/syntax.nanorc` (as
-opposed to overwriting `~/.nanorc`). It's expected that users maintain their
-own settings and key bindings in `~/.nanorc` and `include` the new syntax
-file, as detailed under "Installation" above.
-
-See also: [issue #25].
 
 ### Why does syntax highlighting only work for a subset of supported files?
 
