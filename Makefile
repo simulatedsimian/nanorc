@@ -7,9 +7,9 @@ install-separate: $(addprefix ~/.nano/syntax/, $(wildcard *.nanorc))
 
 ~/.nano/syntax.nanorc: *.nanorc mixins/*.nanorc $(THEME) | ~/.nano/
 	@cat *.nanorc | $(FILTER) > $@
-	@printf 'Installed: $@\n'
 	@grep '^include $@' ~/.nanorc >/dev/null 2>&1 || \
 	  echo 'include $@' >> ~/.nanorc
+	@echo 'Installed: $@'
 
 ~/.nano/syntax/%.nanorc: %.nanorc mixins/*.nanorc $(THEME) | ~/.nano/syntax/
 	@cat $< | $(FILTER) > $@
