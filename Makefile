@@ -1,17 +1,19 @@
 THEME  = theme.sed
 FILTER = sed -f mixins.sed | sed -f $(THEME)
+FILES  = $(wildcard *.nanorc)
+MIXINS = $(wildcard mixins/*.nanorc)
 
 install: ~/.nano/syntax.nanorc
 
-install-separate: $(addprefix ~/.nano/syntax/, $(wildcard *.nanorc))
+install-separate: $(addprefix ~/.nano/syntax/, $(FILES))
 
-~/.nano/syntax.nanorc: *.nanorc mixins/*.nanorc $(THEME) | ~/.nano/
-	@cat *.nanorc | $(FILTER) > $@
+~/.nano/syntax.nanorc: $(FILES) $(MIXINS) $(THEME) force | ~/.nano/
+	@cat $(FILES) | $(FILTER) > $@
 	@grep '^include $@' ~/.nanorc >/dev/null 2>&1 || \
 	  echo 'include $@' >> ~/.nanorc
 	@echo 'Installed: $@'
 
-~/.nano/syntax/%.nanorc: %.nanorc mixins/*.nanorc $(THEME) | ~/.nano/syntax/
+~/.nano/syntax/%.nanorc: %.nanorc $(MIXINS) $(THEME) | ~/.nano/syntax/
 	@cat $< | $(FILTER) > $@
 	@echo 'Installed: $@'
 
@@ -38,4 +40,4 @@ ifdef BSDREGEX
 endif
 
 
-.PHONY: install install-separate ~/.nano/syntax.nanorc
+.PHONY: install install-separate force
