@@ -106,7 +106,7 @@ FAQ
 There appears to be a [bug][issue #5] in older versions of nano that causes
 highlighting to fail when `/etc/nanorc` and `~/.nanorc` both contain
 `syntax` rules. The usual workaround is to remove all `syntax` and `include`
-lines from `/etc/nanorc`.
+commands from one file or the other, or to use a newer version of nano.
 
 ### Why do I get wierd errors when running nano < 2.1.5 on *BSD systems?
 

@@ -16,7 +16,7 @@ all: $(ALL)
 
 build/ALL.nanorc: $(FILES) $(MIXINS) $(THEME) | build/
 	@cat $(FILES) | $(FILTER) > $@
-	@echo 'Generated: $@ (all languages concatenated together)'
+	@echo 'Generated: $@'
 
 build/%.nanorc: %.nanorc $(MIXINS) $(THEME) | build/
 	@cat $< | $(FILTER) > $@
