@@ -37,17 +37,34 @@ Screenshots:
 Installation
 ------------
 
-Using `make install` will concatenate and install the syntax definitions
-to `~/.nano/syntax.nanorc` and append an `include` command to
-`~/.nanorc`, if necessary.
+Using `make install` will install the syntax definitions to the
+`~/.nano/syntax/` directory.
 
-If your terminal **text** color isn't black, you'll need to specify it when
-installing, using `make install TEXT=color`, where `color` must be one of:
-`red`, `green`, `yellow`, `blue`, `magenta`, `cyan` or `white`.
+To enable highlighting for *all* languages after installation, add the
+following command to your `~/.nanorc` file:
 
-After installation, use `nano examples/*` to test if everything is
-working properly. If some or all of the files aren't highlighted properly,
-see the FAQ below.
+    include ~/.nano/syntax/ALL.nanorc
+
+To enable only a subset of languages, `include` them individually:
+
+    include ~/.nano/syntax/c.nanorc
+    include ~/.nano/syntax/python.nanorc
+    include ~/.nano/syntax/sh.nanorc
+    # ...
+
+If you prefer to install to a location that all users can access, using
+`sudo make install-global` will install to `/usr/local/share/nano/`.
+Syntax files installed under this directory can then be `include`d in
+either `/etc/nanorc` or any user's personal `~/.nanorc`.
+
+**Note**: If your terminal **text** color isn't black, you'll need to
+specify it when installing, using `make install TEXT=color`, where
+`color` must be one of: `red`, `green`, `yellow`, `blue`, `magenta`,
+`cyan` or `white`.
+
+After installation, the various source code samples in the `examples`
+directory can be used to check that highlighting is working correctly.
+If it doesn't work as expected, see the FAQ below.
 
 Theme System
 ------------
