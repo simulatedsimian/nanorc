@@ -91,7 +91,7 @@ FAQ
 
 ### Why does syntax highlighting only work for a subset of supported files?
 
-There appears to be a [bug][issue #5] in older versions of nano that causes
+There appears to be a bug in older versions of nano that causes
 highlighting to fail when `/etc/nanorc` and `~/.nanorc` both contain
 `syntax` rules. The usual workaround is to remove all `syntax` and `include`
 commands from one file or the other, or to use a newer version of nano.
@@ -142,9 +142,7 @@ For more information, please refer to <http://unlicense.org/>
 
 [GNU nano]: http://www.nano-editor.org/
 [nanorc]: http://www.nano-editor.org/dist/v2.3/nanorc.5.html
-[theme.sed]: https://github.com/craigbarnes/nanorc/tree/master/theme.sed
-[mixins.sed]: https://github.com/craigbarnes/nanorc/tree/master/mixins.sed
-[mixins]: https://github.com/craigbarnes/nanorc/tree/master/mixins
-[issue #5]: https://github.com/craigbarnes/nanorc/issues/5
-[issue #25]: https://github.com/craigbarnes/nanorc/issues/25
+[theme.sed]: https://github.com/nanorc/nanorc/tree/master/theme.sed
+[mixins.sed]: https://github.com/nanorc/nanorc/tree/master/mixins.sed
+[mixins]: https://github.com/nanorc/nanorc/tree/master/mixins
 [ERE]: http://pubs.opengroup.org/onlinepubs/009695399/basedefs/xbd_chap09.html#tag_09_04
