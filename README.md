@@ -22,17 +22,6 @@ The syntax highlighting definitions that come bundled with nano are of
 pretty poor quality. This is an attempt at providing a good set of accurate
 syntax definitions to replace and expand the defaults.
 
-Screenshots:
-------------
-
-#### Editing HTML:
-
-![HTML Screenshot](http://cra.igbarn.es/img/nanorc-html.png)
-
-#### Editing C:
-
-![C Screenshot](http://cra.igbarn.es/img/nanorc-c.png)
-
 Installation
 ------------
 
