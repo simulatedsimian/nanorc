@@ -1,10 +1,9 @@
-Project Status
-==============
+Unmaintained
+============
 
 I am no longer using nano as my editor and hence have little motivation
-to continue working on this project. I will answer GitHub issues and fix
-existing bugs, but beyond that, please consider this repository only an
-archive.
+to continue working on this project. It remains available on GitHub for
+archival purposes only.
 
 Everything in the repository is in the Public Domain. Feel free to fork
 it and/or use the files for any purpose.
@@ -108,7 +107,7 @@ highlighting to fail when `/etc/nanorc` and `~/.nanorc` both contain
 `syntax` rules. The usual workaround is to remove all `syntax` and `include`
 commands from one file or the other, or to use a newer version of nano.
 
-### Why do I get wierd errors when running nano < 2.1.5 on *BSD systems?
+### Why do I get weird errors when running nano < 2.1.5 on *BSD systems?
 
 In order to reliably highlight keywords, this projects makes heavy use of
 the GNU regex word boundary extensions (`\<` and `\>`). BSD implementations
